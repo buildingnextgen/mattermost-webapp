@@ -1688,6 +1688,7 @@
   "convert_channel.question3": "Sind Sie sicher, dass Sie **{display_name}** in einen privaten Kanal umwandeln möchten?",
   "convert_channel.title": "{display_name} in privaten Kanal umwandeln?",
   "copy_url_context_menu.getChannelLink": "Link kopieren",
+  "custom.company.name": "Heaven",
   "create_comment.addComment": "Kommentar hinzufügen...",
   "create_comment.comment": "Kommentar hinzufügen",
   "create_comment.commentTitle": "Kommentar",

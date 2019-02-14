@@ -12,7 +12,7 @@ import * as GlobalActions from 'actions/global_actions.jsx';
 import {filterAndSortTeamsByDisplayName} from 'utils/team_utils.jsx';
 import * as Utils from 'utils/utils.jsx';
 import {Constants} from 'utils/constants.jsx';
-import AboutBuildModal from 'components/about_build_modal';
+//import AboutBuildModal from 'components/about_build_modal';
 import BlockableLink from 'components/admin_console/blockable_link';
 import MenuIcon from 'components/svg/menu_icon';
 
@@ -159,7 +159,7 @@ export default class AdminNavbarDropdown extends React.Component {
                             key='teamDiv'
                             className='divider'
                         />
-                        <li>
+                        {/* <li>
                             <a
                                 href='https://about.mattermost.com/administrators-guide/'
                                 rel='noopener noreferrer'
@@ -206,7 +206,7 @@ export default class AdminNavbarDropdown extends React.Component {
                                 />
                             </button>
                         </li>
-                        <li className='divider'/>
+                        <li className='divider'/> */}
                         <li>
                             <button
                                 className='style--none'
@@ -219,10 +219,10 @@ export default class AdminNavbarDropdown extends React.Component {
                                 />
                             </button>
                         </li>
-                        <AboutBuildModal
+                        {/* <AboutBuildModal
                             show={this.state.showAboutModal}
                             onModalDismissed={this.aboutModalDismissed}
-                        />
+                        /> */}
                     </ul>
                 </li>
             </ul>
