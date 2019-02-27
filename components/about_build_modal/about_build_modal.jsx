@@ -246,25 +246,15 @@ export default class AboutBuildModal extends React.PureComponent {
                         </div>
                     </div>
                     <div className='about-modal__footer'>
-<<<<<<< HEAD
-                        <div className='form-group about-modal__copyright'>
-                            <FormattedMessage
-                                id='about.copyright'
-                                defaultMessage='Copyright 2018 - {currentYear} {siteName}, Inc. All rights reserved'
-                                values={{
-                                    currentYear: new Date().getFullYear(),
-                                    siteName: config.SiteName,  
-                                }}
-                            />
-=======
-                        {learnMore}
+
                         <div className='form-group'>
                             <div className='about-modal__copyright'>
                                 <FormattedMessage
                                     id='about.copyright'
-                                    defaultMessage='Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved'
+                                    defaultMessage='Copyright 2015 - {currentYear} {siteName}, Inc. All rights reserved'
                                     values={{
                                         currentYear: new Date().getFullYear(),
+                                        siteName: config.SiteName,  
                                     }}
                                 />
                             </div>
@@ -273,7 +263,6 @@ export default class AboutBuildModal extends React.PureComponent {
                                 {tosPrivacyHyphen}
                                 {privacyPolicy}
                             </div>
->>>>>>> mattermost/master
                         </div>
                     </div>
                     
