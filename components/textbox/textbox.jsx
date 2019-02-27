@@ -331,7 +331,7 @@ export default class Textbox extends React.Component {
                     listenForMentionKeyClick={this.props.listenForMentionKeyClick}
                 />
                 {preview}
-                <div className={'help__text ' + helpTextClass}>
+                {/* <div className={'help__text ' + helpTextClass}>
                     {helpText}
                     {previewLink}
                     <Link
@@ -346,7 +346,7 @@ export default class Textbox extends React.Component {
                             defaultMessage='Help'
                         />
                     </Link>
-                </div>
+                </div> */}
             </div>
         );
     }

@@ -114,6 +114,7 @@ export default class NotLoggedIn extends React.PureComponent {
                                 id='copyright'
                                 className='pull-right footer-link copyright'
                             >
+
                                 {`© 2018-${new Date().getFullYear()} ${this.props.config.SiteName }.`}
                             </span>
                             <span className='pull-right'>
