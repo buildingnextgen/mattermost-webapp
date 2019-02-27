@@ -135,31 +135,35 @@ export default class SidebarRightMenu extends React.PureComponent {
 
         if (this.props.currentUserId != null) {
             inviteLink = (
-                <TeamPermissionGate
-                    teamId={this.props.teamId}
-                    permissions={[Permissions.INVITE_USER]}
-                >
+                <SystemPermissionGate permissions={[Permissions.MANAGE_SYSTEM]}>
                     <TeamPermissionGate
                         teamId={this.props.teamId}
-                        permissions={[Permissions.ADD_USER_TO_TEAM]}
+                        permissions={[Permissions.INVITE_USER]}
                     >
-                        <li>
-                            <ToggleModalButtonRedux
-                                id='emailInviteMobile'
-                                role='menuitem'
-                                modalId={ModalIdentifiers.EMAIL_INVITE}
-                                dialogType={InviteMemberModal}
-                                dialogProps={{}}
-                            >
-                                <i className='icon fa fa-user-plus'/>
-                                <FormattedMessage
-                                    id='sidebar_right_menu.inviteNew'
-                                    defaultMessage='Send Email Invite'
-                                />
-                            </ToggleModalButtonRedux>
-                        </li>
+                        <TeamPermissionGate
+                            teamId={this.props.teamId}
+                            permissions={[Permissions.ADD_USER_TO_TEAM]}
+                        >
+                            <li>
+                                <ToggleModalButtonRedux
+                                    id='emailInviteMobile'
+                                    role='menuitem'
+                                    modalId={ModalIdentifiers.EMAIL_INVITE}
+                                    dialogType={InviteMemberModal}
+                                    dialogProps={{}}
+                                >
+                                    <i className='icon fa fa-user-plus' />
+                                    <FormattedMessage
+                                        id='sidebar_right_menu.inviteNew'
+                                        defaultMessage='Send Email Invite'
+                                    />
+                                </ToggleModalButtonRedux>
+                            </li>
+                        </TeamPermissionGate>
                     </TeamPermissionGate>
-                </TeamPermissionGate>
+
+                </SystemPermissionGate>
+                
             );
 
             addUserToTeamLink = (
@@ -185,28 +189,33 @@ export default class SidebarRightMenu extends React.PureComponent {
 
             if (this.props.teamType === Constants.OPEN_TEAM && this.props.enableUserCreation) {
                 teamLink = (
-                    <TeamPermissionGate
-                        teamId={this.props.teamId}
-                        permissions={[Permissions.INVITE_USER]}
-                    >
+
+                    <SystemPermissionGate permissions={[Permissions.MANAGE_SYSTEM]}>
                         <TeamPermissionGate
                             teamId={this.props.teamId}
-                            permissions={[Permissions.ADD_USER_TO_TEAM]}
+                            permissions={[Permissions.INVITE_USER]}
                         >
-                            <li>
-                                <a
-                                    href='#'
-                                    onClick={GlobalActions.showGetTeamInviteLinkModal}
-                                >
-                                    <i className='icon fa fa-link'/>
-                                    <FormattedMessage
-                                        id='sidebar_right_menu.teamLink'
-                                        defaultMessage='Get Team Invite Link'
-                                    />
-                                </a>
-                            </li>
+                            <TeamPermissionGate
+                                teamId={this.props.teamId}
+                                permissions={[Permissions.ADD_USER_TO_TEAM]}
+                            >
+                                <li>
+                                    <a
+                                        href='#'
+                                        onClick={GlobalActions.showGetTeamInviteLinkModal}
+                                    >
+                                        <i className='icon fa fa-link' />
+                                        <FormattedMessage
+                                            id='sidebar_right_menu.teamLink'
+                                            defaultMessage='Get Team Invite Link'
+                                        />
+                                    </a>
+                                </li>
+                            </TeamPermissionGate>
                         </TeamPermissionGate>
-                    </TeamPermissionGate>
+
+                    </SystemPermissionGate>
+                    
                 );
             }
 
@@ -364,23 +373,23 @@ export default class SidebarRightMenu extends React.PureComponent {
         }
 
         let helpLink = null;
-        if (this.props.helpLink) {
-            helpLink = (
-                <li>
-                    <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href={useSafeUrl(this.props.helpLink)}
-                    >
-                        <i className='icon fa fa-question'/>
-                        <FormattedMessage
-                            id='sidebar_right_menu.help'
-                            defaultMessage='Help'
-                        />
-                    </a>
-                </li>
-            );
-        }
+        // if (this.props.helpLink) {
+        //     helpLink = (
+        //         <li>
+        //             <a
+        //                 target='_blank'
+        //                 rel='noopener noreferrer'
+        //                 href={useSafeUrl(this.props.helpLink)}
+        //             >
+        //                 <i className='icon fa fa-question'/>
+        //                 <FormattedMessage
+        //                     id='sidebar_right_menu.help'
+        //                     defaultMessage='Help'
+        //                 />
+        //             </a>
+        //         </li>
+        //     );
+        // }
 
         let reportLink = null;
         if (this.props.reportAProblemLink) {
@@ -514,7 +523,7 @@ export default class SidebarRightMenu extends React.PureComponent {
                         {consoleDivider}
                         {consoleLink}
                         <li className='divider'/>
-                        {helpLink}
+                        {/* {helpLink} */}
                         {reportLink}
                         {nativeAppLink}
                         <li>
@@ -525,7 +534,7 @@ export default class SidebarRightMenu extends React.PureComponent {
                                 <i className='icon fa fa-info'/>
                                 <FormattedMessage
                                     id='navbar_dropdown.about'
-                                    defaultMessage='About Mattermost'
+                                    defaultMessage='About'
                                 />
                             </a>
                         </li>
