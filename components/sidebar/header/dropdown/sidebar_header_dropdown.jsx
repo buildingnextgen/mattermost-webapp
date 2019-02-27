@@ -226,28 +226,31 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
         if (currentUser != null) {
             if (this.props.enableEmailInvitations) {
                 inviteLink = (
-                    <TeamPermissionGate
-                        teamId={this.props.teamId}
-                        permissions={[Permissions.INVITE_USER]}
-                    >
+                    <SystemPermissionGate permissions={[Permissions.MANAGE_SYSTEM]}>
                         <TeamPermissionGate
                             teamId={this.props.teamId}
-                            permissions={[Permissions.ADD_USER_TO_TEAM]}
+                            permissions={[Permissions.INVITE_USER]}
                         >
-                            <li>
-                                <button
-                                    className='style--none'
-                                    id='sendEmailInvite'
-                                    onClick={this.showInviteMemberModal}
-                                >
-                                    <FormattedMessage
-                                        id='navbar_dropdown.inviteMember'
-                                        defaultMessage='Send Email Invite'
-                                    />
-                                </button>
-                            </li>
+                            <TeamPermissionGate
+                                teamId={this.props.teamId}
+                                permissions={[Permissions.ADD_USER_TO_TEAM]}
+                            >
+                                <li>
+                                    <button
+                                        className='style--none'
+                                        id='sendEmailInvite'
+                                        onClick={this.showInviteMemberModal}
+                                    >
+                                        <FormattedMessage
+                                            id='navbar_dropdown.inviteMember'
+                                            defaultMessage='Send Email Invite'
+                                        />
+                                    </button>
+                                </li>
+                            </TeamPermissionGate>
                         </TeamPermissionGate>
-                    </TeamPermissionGate>
+                    </SystemPermissionGate>
+                    
                 );
             }
 
@@ -273,28 +276,31 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
 
             if (this.props.teamType === Constants.OPEN_TEAM && this.props.enableUserCreation) {
                 teamLink = (
-                    <TeamPermissionGate
-                        teamId={this.props.teamId}
-                        permissions={[Permissions.INVITE_USER]}
-                    >
+
+                    <SystemPermissionGate permissions={[Permissions.MANAGE_SYSTEM]}>
                         <TeamPermissionGate
                             teamId={this.props.teamId}
-                            permissions={[Permissions.ADD_USER_TO_TEAM]}
+                            permissions={[Permissions.INVITE_USER]}
                         >
-                            <li>
-                                <button
-                                    className='style--none'
-                                    id='getTeamInviteLink'
-                                    onClick={this.showGetTeamInviteLinkModal}
-                                >
-                                    <FormattedMessage
-                                        id='navbar_dropdown.teamLink'
-                                        defaultMessage='Get Team Invite Link'
-                                    />
-                                </button>
-                            </li>
+                            <TeamPermissionGate
+                                teamId={this.props.teamId}
+                                permissions={[Permissions.ADD_USER_TO_TEAM]}
+                            >
+                                <li>
+                                    <button
+                                        className='style--none'
+                                        id='getTeamInviteLink'
+                                        onClick={this.showGetTeamInviteLinkModal}
+                                    >
+                                        <FormattedMessage
+                                            id='navbar_dropdown.teamLink'
+                                            defaultMessage='Get Team Invite Link'
+                                        />
+                                    </button>
+                                </li>
+                            </TeamPermissionGate>
                         </TeamPermissionGate>
-                    </TeamPermissionGate>
+                    </SystemPermissionGate>
                 );
             }
         }
@@ -473,23 +479,23 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
         }
 
         let helpLink = null;
-        if (this.props.helpLink) {
-            helpLink = (
-                <li>
-                    <a
-                        id='helpLink'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href={this.props.helpLink}
-                    >
-                        <FormattedMessage
-                            id='navbar_dropdown.help'
-                            defaultMessage='Help'
-                        />
-                    </a>
-                </li>
-            );
-        }
+        // if (this.props.helpLink) {
+        //     helpLink = (
+        //         <li>
+        //             <a
+        //                 id='helpLink'
+        //                 target='_blank'
+        //                 rel='noopener noreferrer'
+        //                 href={this.props.helpLink}
+        //             >
+        //                 <FormattedMessage
+        //                     id='navbar_dropdown.help'
+        //                     defaultMessage='Help'
+        //                 />
+        //             </a>
+        //         </li>
+        //     );
+        // }
 
         let reportLink = null;
         if (this.props.reportAProblemLink) {
@@ -557,7 +563,7 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
                 >
                     <FormattedMessage
                         id='navbar_dropdown.keyboardShortcuts'
-                        defaultMessage='Keyboard Shortcuts'
+                        defaultMessage='Help'
                     />
                 </button>
             </li>
@@ -587,7 +593,7 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
                 >
                     <FormattedMessage
                         id='navbar_dropdown.about'
-                        defaultMessage='About Mattermost'
+                        defaultMessage='About'
                     />
                 </button>
             </li>
@@ -672,7 +678,7 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
                     {sysAdminDivider}
                     {sysAdminLink}
                     {helpDivider}
-                    {helpLink}
+                    {/* {helpLink} */}
                     {keyboardShortcuts}
                     {reportLink}
                     {nativeAppLink}

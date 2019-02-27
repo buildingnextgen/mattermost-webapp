@@ -275,7 +275,7 @@ exports[`plugins/MainMenuActions should match snapshot and click plugin item for
         onClick={[Function]}
       >
         <FormattedMessage
-          defaultMessage="About Mattermost"
+          defaultMessage="About"
           id="navbar_dropdown.about"
           values={Object {}}
         />
@@ -616,7 +616,7 @@ exports[`plugins/MainMenuActions should match snapshot and click plugin item for
             className="icon fa fa-info"
           />
           <FormattedMessage
-            defaultMessage="About Mattermost"
+            defaultMessage="About"
             id="navbar_dropdown.about"
             values={Object {}}
           />

@@ -8,7 +8,7 @@
 // ***************************************************************
 
 describe('Edit Message', () => {
-    it('Escape should not close modal when an autocomplete drop down is in use', () => {
+    it('M13909 Escape should not close modal when an autocomplete drop down is in use', () => {
         // 1. Login as "user-1" and go to /
         cy.login('user-1');
         cy.visit('/');
@@ -28,6 +28,9 @@ describe('Edit Message', () => {
         // 5. Press the escape key
         cy.get('#edit_textbox').type('{esc}');
 
+        // * Check if the textbox contains expected text
+        cy.get('#edit_textbox').should('contain', 'Hello World! @');
+
         // * Assert user autocomplete is not visible
         cy.get('#suggestionList').should('not.exist');
 
@@ -39,6 +42,9 @@ describe('Edit Message', () => {
 
         // 6. Press the escape key
         cy.get('#edit_textbox').type('{esc}');
+
+        // * Check if the textbox contains expected text
+        cy.get('#edit_textbox').should('contain', 'Hello World! @ ~');
 
         // * Assert channel autocomplete is not visible
         cy.get('#suggestionList').should('not.exist');

@@ -1,6 +1,8 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {connect} from 'react-redux';
+import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
@@ -247,10 +249,20 @@ const allShortcuts = defineMessages({
     },
 });
 
+function mapStateToProps(state) {
+    return {
+        config: getConfig(state),
+    };
+}
+
 class ShortcutsModal extends React.PureComponent {
     static propTypes = {
         intl: intlShape.isRequired,
         isMac: PropTypes.bool.isRequired,
+        /*
+         * Mattermost configuration
+         */
+        config: PropTypes.object,
     }
 
     constructor(props) {
@@ -299,7 +311,7 @@ class ShortcutsModal extends React.PureComponent {
     render() {
         const shortcuts = this.getShortcuts();
         const {formatMessage} = this.props.intl;
-
+        
         return (
             <Modal
                 dialogClassName='shortcuts-modal'
@@ -374,6 +386,16 @@ class ShortcutsModal extends React.PureComponent {
                             </div>
                         </div>
                         <div className='info__label'>{formatMessage(shortcuts.info)}</div>
+                        <div className='row'>
+                            {'Visit our'}
+                            <a
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href={this.props.config.HelpLink}
+                            > {'help center'} </a> 
+                            {'for additional help resources.'}
+                        </div>
+                        
                     </Modal.Body>
                 </div>
             </Modal>
@@ -409,4 +431,4 @@ function renderShortcut(text) {
     );
 }
 
-export default injectIntl(ShortcutsModal);
+export default connect(mapStateToProps)(injectIntl(ShortcutsModal));

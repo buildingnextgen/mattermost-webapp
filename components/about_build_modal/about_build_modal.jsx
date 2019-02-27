@@ -136,6 +136,47 @@ export default class AboutBuildModal extends React.PureComponent {
             }
         }
 
+        let termsOfService;
+        if (config.TermsOfServiceLink) {
+            termsOfService = (
+                <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={config.TermsOfServiceLink}
+                >
+                    <FormattedMessage
+                        id='about.tos'
+                        defaultMessage='Terms of Service'
+                    />
+                </a>
+            );
+        }
+
+        let privacyPolicy;
+        if (config.PrivacyPolicyLink) {
+            privacyPolicy = (
+                <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={config.PrivacyPolicyLink}
+                >
+                    <FormattedMessage
+                        id='about.privacy'
+                        defaultMessage='Privacy Policy'
+                    />
+                </a>
+            );
+        }
+
+        let tosPrivacyHyphen;
+        if (config.TermsOfServiceLink && config.PrivacyPolicyLink) {
+            tosPrivacyHyphen = (
+                <span>
+                    {' - '}
+                </span>
+            );
+        }
+
         // Only show build number if it's a number (so only builds from Jenkins)
         let buildnumber = (
             <div>
@@ -165,7 +206,7 @@ export default class AboutBuildModal extends React.PureComponent {
                     <Modal.Title>
                         <FormattedMessage
                             id='about.title'
-                            defaultMessage='About Mattermost'
+                            defaultMessage='About'
                         />
                     </Modal.Title>
                 </Modal.Header>
@@ -175,9 +216,9 @@ export default class AboutBuildModal extends React.PureComponent {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>{'Mattermost'} {title}</h3>
+                            <h3 className='about-modal__title'>{config.SiteName}</h3>
                             <p className='about-modal__subtitle padding-bottom'>{subTitle}</p>
-                            <div className='form-group less'>
+                            {/* <div className='form-group less'>
                                 <div>
                                     <FormattedMessage
                                         id='about.version'
@@ -200,56 +241,41 @@ export default class AboutBuildModal extends React.PureComponent {
                                     />
                                     {'\u00a0' + config.SQLDriverName}
                                 </div>
-                            </div>
-                            {licensee}
+                            </div> */}
+                            {/* {licensee} */}
                         </div>
                     </div>
                     <div className='about-modal__footer'>
-                        {learnMore}
-                        <div className='form-group about-modal__copyright'>
-                            <FormattedMessage
-                                id='about.copyright'
-                                defaultMessage='Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved'
-                                values={{
-                                    currentYear: new Date().getFullYear(),
-                                }}
-                            />
+
+                        <div className='form-group'>
+                            <div className='about-modal__copyright'>
+                                <FormattedMessage
+                                    id='about.copyright'
+                                    defaultMessage='Copyright 2015 - {currentYear} {siteName}, Inc. All rights reserved'
+                                    values={{
+                                        currentYear: new Date().getFullYear(),
+                                        siteName: config.SiteName,  
+                                    }}
+                                />
+                            </div>
+                            <div className='about-modal__links'>
+                                {termsOfService}
+                                {tosPrivacyHyphen}
+                                {privacyPolicy}
+                            </div>
                         </div>
                     </div>
+                    
                     <div className='about-modal__notice form-group padding-top x2'>
                         <p>
+                            {/* <FormattedMarkdownMessage
+                                id='about.notice'
+                                defaultMessage='Powered by Mattermost open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
+                            /> */}
                             <FormattedMarkdownMessage
                                 id='about.notice'
-                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
+                                defaultMessage='Powered by Mattermost open source software used in our [server] and [mobile] apps.'
                             />
-                        </p>
-                    </div>
-                    <div className='about-modal__hash'>
-                        <p>
-                            <FormattedMessage
-                                id='about.hash'
-                                defaultMessage='Build Hash:'
-                            />
-                            &nbsp;{config.BuildHash}
-                            <br/>
-                            <FormattedMessage
-                                id='about.hashee'
-                                defaultMessage='EE Build Hash:'
-                            />
-                            &nbsp;{config.BuildHashEnterprise}
-                            <br/>
-                            <FormattedMessage
-                                id='about.hashwebapp'
-                                defaultMessage='Webapp Build Hash:'
-                            />
-                            &nbsp;{/* global COMMIT_HASH */ this.props.webappBuildHash || (typeof COMMIT_HASH === 'undefined' ? '' : COMMIT_HASH)}
-                        </p>
-                        <p>
-                            <FormattedMessage
-                                id='about.date'
-                                defaultMessage='Build Date:'
-                            />
-                            &nbsp;{config.BuildDate}
                         </p>
                     </div>
                 </Modal.Body>

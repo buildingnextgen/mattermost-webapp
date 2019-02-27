@@ -114,8 +114,13 @@
             margin-top: .5em;
         }
 
+        .about-modal__links {
+            margin-top: .5em;
+        }
+
         .about-modal__footer {
             font-size: 13.5px;
+            text-align: center;
         }
 
         .about-modal__title {
@@ -148,7 +153,7 @@
 
             p {
                 &:first-child {
-                    text-align: left;
+                    text-align: center;
                 }
             }
         }
@@ -160,6 +165,20 @@
             svg {
                 height: 125px;
                 width: 125px;
+            }
+
+            path {
+                fill: inherit;
+            }
+        }
+
+        .about-modal__logonotice {
+            @include opacity(.9);
+            padding: 0 40px 0 20px;
+
+            svg {
+                height: 30px;
+                width: 30px;
             }
 
             path {

@@ -31,50 +31,50 @@ export default class NotLoggedIn extends React.PureComponent {
     render() {
         const content = [];
 
-        // if (this.props.config.AboutLink) {
-        //     content.push(
-        //         <a
-        //             key='about_link'
-        //             id='about_link'
-        //             className='footer-link'
-        //             target='_blank'
-        //             rel='noopener noreferrer'
-        //             href={this.props.config.AboutLink}
-        //         >
-        //             <FormattedMessage id='web.footer.about'/>
-        //         </a>
-        //     );
-        // }
+        if (this.props.config.AboutLink) {
+            content.push(
+                <a
+                    key='about_link'
+                    id='about_link'
+                    className='footer-link'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={this.props.config.AboutLink}
+                >
+                    <FormattedMessage id='web.footer.about'/>
+                </a>
+            );
+        }
 
-        // if (this.props.config.PrivacyPolicyLink) {
-        //     content.push(
-        //         <a
-        //             key='privacy_link'
-        //             id='privacy_link'
-        //             className='footer-link'
-        //             target='_blank'
-        //             rel='noopener noreferrer'
-        //             href={this.props.config.PrivacyPolicyLink}
-        //         >
-        //             <FormattedMessage id='web.footer.privacy'/>
-        //         </a>
-        //     );
-        // }
+        if (this.props.config.PrivacyPolicyLink) {
+            content.push(
+                <a
+                    key='privacy_link'
+                    id='privacy_link'
+                    className='footer-link'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={this.props.config.PrivacyPolicyLink}
+                >
+                    <FormattedMessage id='web.footer.privacy'/>
+                </a>
+            );
+        }
 
-        // if (this.props.config.TermsOfServiceLink) {
-        //     content.push(
-        //         <a
-        //             key='terms_link'
-        //             id='terms_link'
-        //             className='footer-link'
-        //             target='_blank'
-        //             rel='noopener noreferrer'
-        //             href={this.props.config.TermsOfServiceLink}
-        //         >
-        //             <FormattedMessage id='web.footer.terms'/>
-        //         </a>
-        //     );
-        // }
+        if (this.props.config.TermsOfServiceLink) {
+            content.push(
+                <a
+                    key='terms_link'
+                    id='terms_link'
+                    className='footer-link'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={this.props.config.TermsOfServiceLink}
+                >
+                    <FormattedMessage id='web.footer.terms'/>
+                </a>
+            );
+        }
 
         if (this.props.config.HelpLink) {
             content.push(
@@ -104,9 +104,9 @@ export default class NotLoggedIn extends React.PureComponent {
                         <div className='col-xs-12'>
                             <span
                                 id='company_name'
-                                className='pull-right footer-site-name'
+                                className='pull-right footer-poweredby-site-name'
                             >
-                                <FormattedMessage id='custom.company.name'/>
+                                powered by MATTERMOST.
                             </span>
                         </div>
                         <div className='col-xs-12'>
@@ -114,11 +114,11 @@ export default class NotLoggedIn extends React.PureComponent {
                                 id='copyright'
                                 className='pull-right footer-link copyright'
                             >
-                                {`© 2019-${new Date().getFullYear()} Yapperoo, Inc.`}
+                                {`© 2018-${new Date().getFullYear()} ${this.props.config.SiteName }.`}
                             </span>
-                            {/* <span className='pull-right'>
+                            <span className='pull-right'>
                                 {content}
-                            </span> */}
+                            </span> 
                         </div>
                     </div>
                 </div>
