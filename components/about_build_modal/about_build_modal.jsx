@@ -136,6 +136,47 @@ export default class AboutBuildModal extends React.PureComponent {
             }
         }
 
+        let termsOfService;
+        if (config.TermsOfServiceLink) {
+            termsOfService = (
+                <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={config.TermsOfServiceLink}
+                >
+                    <FormattedMessage
+                        id='about.tos'
+                        defaultMessage='Terms of Service'
+                    />
+                </a>
+            );
+        }
+
+        let privacyPolicy;
+        if (config.PrivacyPolicyLink) {
+            privacyPolicy = (
+                <a
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href={config.PrivacyPolicyLink}
+                >
+                    <FormattedMessage
+                        id='about.privacy'
+                        defaultMessage='Privacy Policy'
+                    />
+                </a>
+            );
+        }
+
+        let tosPrivacyHyphen;
+        if (config.TermsOfServiceLink && config.PrivacyPolicyLink) {
+            tosPrivacyHyphen = (
+                <span>
+                    {' - '}
+                </span>
+            );
+        }
+
         // Only show build number if it's a number (so only builds from Jenkins)
         let buildnumber = (
             <div>
@@ -205,6 +246,7 @@ export default class AboutBuildModal extends React.PureComponent {
                         </div>
                     </div>
                     <div className='about-modal__footer'>
+<<<<<<< HEAD
                         <div className='form-group about-modal__copyright'>
                             <FormattedMessage
                                 id='about.copyright'
@@ -214,6 +256,24 @@ export default class AboutBuildModal extends React.PureComponent {
                                     siteName: config.SiteName,  
                                 }}
                             />
+=======
+                        {learnMore}
+                        <div className='form-group'>
+                            <div className='about-modal__copyright'>
+                                <FormattedMessage
+                                    id='about.copyright'
+                                    defaultMessage='Copyright 2015 - {currentYear} Mattermost, Inc. All rights reserved'
+                                    values={{
+                                        currentYear: new Date().getFullYear(),
+                                    }}
+                                />
+                            </div>
+                            <div className='about-modal__links'>
+                                {termsOfService}
+                                {tosPrivacyHyphen}
+                                {privacyPolicy}
+                            </div>
+>>>>>>> mattermost/master
                         </div>
                     </div>
                     

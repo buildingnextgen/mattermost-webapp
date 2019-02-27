@@ -48,7 +48,7 @@ export default class MessageAttachment extends React.PureComponent {
         imagesMetadata: PropTypes.object,
 
         actions: PropTypes.shape({
-            doPostAction: PropTypes.func.isRequired,
+            doPostActionWithCookie: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -103,7 +103,7 @@ export default class MessageAttachment extends React.PureComponent {
         }
     };
 
-    getActionView = () => {
+    renderPostActions = () => {
         const actions = this.props.attachment.actions;
         if (!actions || !actions.length) {
             return '';
@@ -151,7 +151,9 @@ export default class MessageAttachment extends React.PureComponent {
     handleAction = (e) => {
         e.preventDefault();
         const actionId = e.currentTarget.getAttribute('data-action-id');
-        this.props.actions.doPostAction(this.props.postId, actionId);
+        const actionCookie = e.currentTarget.getAttribute('data-action-cookie');
+
+        this.props.actions.doPostActionWithCookie(this.props.postId, actionId, actionCookie);
     };
 
     getFieldsTable = () => {
@@ -308,7 +310,14 @@ export default class MessageAttachment extends React.PureComponent {
             } else {
                 title = (
                     <h1 className='attachment__title'>
-                        {attachment.title}
+                        <Markdown
+                            message={attachment.title}
+                            options={{
+                                mentionHighlight: false,
+                                markdown: false,
+                                autolinkedUrlSchemes: [],
+                            }}
+                        />
                     </h1>
                 );
             }
@@ -360,7 +369,7 @@ export default class MessageAttachment extends React.PureComponent {
         }
 
         const fields = this.getFieldsTable();
-        const actions = this.getActionView();
+        const actions = this.renderPostActions();
 
         let useBorderStyle;
         if (attachment.color && attachment.color[0] === '#') {

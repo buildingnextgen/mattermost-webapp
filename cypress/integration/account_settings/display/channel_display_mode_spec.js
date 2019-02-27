@@ -25,8 +25,12 @@ describe('Account Settings > Display > Channel Display Mode', () => {
         cy.get('#displayButton').click();
 
         // * Check that it changed into the Display section
-        // * Check the min setting view if each element is present and contains expected text values
         cy.get('#displaySettingsTitle').should('be.visible').should('contain', 'Display Settings');
+
+        // 3. Scroll up to bring Channel Display setting in viewable area.
+        cy.get('#channel_display_modeTitle').scrollIntoView();
+
+        // * Check the min setting view if each element is present and contains expected text values
         cy.get('#channel_display_modeTitle').should('be.visible').should('contain', 'Channel Display');
         cy.get('#channel_display_modeDesc').should('be.visible').should('contain', 'Fixed width');
         cy.get('#channel_display_modeEdit').should('be.visible').should('contain', 'Edit');
@@ -71,7 +75,7 @@ describe('Account Settings > Display > Channel Display Mode', () => {
         cy.get('.post__content').last().should('have.css', 'width', '1179px');
     });
 
-    it('change channel display mode setting to "Fixed width, centered"', () => {
+    it('AS13225 Channel display mode setting to "Fixed width, centered"', () => {
         // 1. Return to Account Settings modal
         cy.toAccountSettingsModal('user-1', true);
 
