@@ -13,31 +13,70 @@ export default class MattermostLogo extends React.PureComponent {
                     defaultMessage='Mattermost Logo'
                 >
                     {(ariaLabel) => (
+                        
                         <svg
-                            version='1.1'
-                            id='Layer_1'
-                            x='0px'
-                            y='0px'
-                            viewBox='0 0 500 500'
+
+                            id="Layer_1"
+                            version="1.1"
+                            
                             style={style.background}
                             role='icon'
                             aria-label={ariaLabel}
-                        >
-                            <g id='XMLID_1_'>
-                                <g id='XMLID_3_'>
-                                    <path
-                                        id='XMLID_4_'
-                                        style={style.st0}
-                                        d='M396.9,47.7l2.6,53.1c43,47.5,60,114.8,38.6,178.1c-32,94.4-137.4,144.1-235.4,110.9 S51.1,253.1,83,158.7C104.5,95.2,159.2,52,222.5,40.5l34.2-40.4C150-2.8,49.3,63.4,13.3,169.9C-31,300.6,39.1,442.5,169.9,486.7 s272.6-25.8,316.9-156.6C522.7,223.9,483.1,110.3,396.9,47.7z'
-                                    />
-                                </g>
-                                <path
-                                    id='XMLID_2_'
-                                    style={style.st0}
-                                    d='M335.6,204.3l-1.8-74.2l-1.5-42.7l-1-37c0,0,0.2-17.8-0.4-22c-0.1-0.9-0.4-1.6-0.7-2.2 c0-0.1-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.1-0.2c-0.7-1.2-1.8-2.1-3.1-2.6c-1.4-0.5-2.9-0.4-4.2,0.2c0,0-0.1,0-0.1,0 c-0.2,0.1-0.3,0.1-0.4,0.2c-0.6,0.3-1.2,0.7-1.8,1.3c-3,3-13.7,17.2-13.7,17.2l-23.2,28.8l-27.1,33l-46.5,57.8 c0,0-21.3,26.6-16.6,59.4s29.1,48.7,48,55.1c18.9,6.4,48,8.5,71.6-14.7C336.4,238.4,335.6,204.3,335.6,204.3z'
-                                />
-                            </g>
-                        </svg>
+                            width="260"
+                            height="260"
+                            
+                            viewBox='0 0 500 500'>
+                            
+
+                            <defs
+                                id="defs3394" />
+
+                            <image
+                                width="260"
+                                height="260"
+                                preserveAspectRatio="none"
+                                 href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAAEECAMAAAD51ro4AAAAsVBMVEVHcExeztr7sRX7sRXerFn5
+               izKvsJL7sRbxZlBgyddfytdgytf/shL8shP/jS/xZVDzZVD8shT6sRXxZlBgytf1ZE/xZVBezNrx
+               ZlDyZlBgytdfy9j7sRVfy9nxZVBfytdfy9fwZlBgytf6sRVfytdfytfxZVD8sRX7sRX8sBXxZVHz
+               ZVD7sBX7sRT7sBTxZVDxZlD7sBXyZVCdpKdfythgytfxZlH7sRbyZlH8shX8sRUsn1BHAAAANXRS
+               TlMAD73lAhUFgICA7cohMwu6Mk1s3LQhZCRzQ95I8zXoeVrzn9eN94xg+ov6UZt3Pq3NrZsvaQBB
+               P0UAAAaXSURBVHja7d3netpKEAbgAVayaaJ3TDHFFPcnkiD3f2EnEFcMHEvaGa+i7/vvrJ/XW0ZL
+               NBB9TarVGw2zoTMc9VopinNSvWnX1ZDutKcfolFety/Dp70uN74xylXd1Zh6SydAu7Tyomdcap+H
+               aGkl2OVaE4PTrnn6UmufHmk0c7VnNtJAYDcHnt7UmuroSGrqsmSqohpYJU9/StaxDbHuMqUecYMs
+               1zyO1Mpfd8Scy5buVRSD5pjFwNuM14fzoOsypht+LtjPHlc2m/mnlWrXXdbUwxqopseZ5sexrl3m
+               TEMidFasCKvOhw3BZU+obUE1xh5vBu+FU54fIR9qIpQ87pTeiiRXICGKJtXx+POyIOyuBELXDo5Q
+               E0B4VHITIcRUYD4ZXs/JpszR8PIsFXgmSEwEz6vtV0NOBiFnBz0aPJk0iKjnCqUXcCK0hRDaRJSV
+               QsgGRHgUQniU2xICbwpqJYSwUkR1KYRgDxDK8qRiiZSLoYrGshhCmSgnhZALhrAWQ1gTuWIx83DY
+               Hw+mIlyKIVwCAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAA
+               AhCAAAQgAAEIQAACEIBgEkJXyqBrMIKpr/80xRCaxr4IRh0xhI65rwSGehFsE+aHykS/pBACvjFu
+               CRHsXwlMCRnMgnaXGUgA/MlAqI9GiC2B6FloS5gTEQ1lEH6x9dHYRDLYlImIWjIIgXst2WMBgpfV
+               QDSVMAjRZOhBZDU8v7TbEnhTOBei6ZY15p0D+4xfG9EJ7ArDMB2GJCrny7fVx35A5O0wCM6Acw78
+               3RGc95aczAsiF7JBJ/ub85sOiTUeC92LcP7lt95orhHeG/Ep3s4qw7AGpEpMy+DvP1c66Bo6NNGA
+               yBpwCfxJ7bBFqerNmPaDHkVJg6/lVO1I7+IrljumbtSmxQ5XK74H59hwqaH2QyI3jN7GW815nptO
+               dRHWzKCDYH+/on8ylMrnnlp6U02VU37as0lPlG6GswQvpdMo2r3jLH+dHels475jaDQf9PQqHT80
+               G98b9OwmObP/91fmSacdrZ35oDRvdgKMd66hd55+LPb8Ww9Dp/88Af8+Q51XA9qWhVqPz96d687J
+               zuY9+sk0TrcotBnQU3lNF2V645y6gX3kmXzZ458pqp9VONXj/pkHgXq5yJ8kceT4tx00uYZr5SPf
+               nbMsiWPFU4NtuNS1thsSrZO0vTpxd86Tg6+CmZERUZ3DwumBdbhW15BS6eC+5eDWqc2L/ql8zJqC
+               QPYld6n0Ob9mhpRKnyuZj0tiZbMP+F4+mvStb+pD+fgoMN5r+Zgno/L+xThzEfWsKaXS8fJxLTPc
+               vnwcmYbwWj5aQsPtyseWcQjk7D7Dr8mtwGlOkYFpr7wHweGuyMiUa21CrAYMEARBEARBEARBEARB
+               EARB/ukUipXqRfhUK8VCzAGq6YXvb7d++Ox+uJ+uxhXCucv4+pK5iyGBXc34C19nMjcqZgZW2ted
+               hZ+2YmVQzPgcyRRjZHDT93nSr8RmO7j1t0wIv7fLmGwMVZ8z1VgY3C9YERb35hOoQp/VwN9mYlA4
+               pX3mbNPGG1R8/ph+RKiJAMJEJflkiMkJMRFBmJh9NIgY+FujD4g7GQTf5OdqlRaaCSafkmohhLAw
+               +HwQ2hL+KBh8s1CUQvDNvVhQFTEEg4vGqhiCweXShRjCBRCAAAQgAAEIQAACEIAABCAAAQhAAAIQ
+               gAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAwrdyI4ZwYy5C2Nd/gjfe
+               MPj1n6KMgG/yi2BkiS0Hk5sNBews9Dvs8jH6jfFboYmwNBmhwroRxGJLILL7IhMhQ0bniW8j+JBb
+               sxEsianQN70RnUTlfGG4ATkZvlXwuiM4piMIvDkfh058S8ZJYHyN8DYX0jorgi8FRjoevQitDGeJ
+               EJcWpQW+llOT+PQudrhaDT05FJ+oJc9zU8yaFhf1T4Z0kWIXzQxxJNhvkDdPeh4l+k/V+Ha1V0T3
+               ETu6Z9LL6j3FPvYy2sOQon8gSlXOLIp7SkjUmerJocTEOXEDu5hQknKix/1tohCoOInZZ4pyDxSF
+               hCGQujvsXrrNUPJyf1g4PSUQQR1+FcwdJVFBXSSzVDqogT+WjwuHEprC+5JIU2LzVj5ul5TgvJaP
+               lSQjvJSPWyvRCOQ8mf/fDARSXSSyVDpcEpkqEMgqwABBEARBEMPzHy0CHAzbJH76AAAAAElFTkSu
+               QmCC
+               "
+                    id="image3398"
+                    x="0"
+                    y="0" />
+                </svg>
+                        
                     )}
                 </FormattedMessage>
             </span>
